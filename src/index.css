@@ -1,0 +1,61 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;600;700&family=IBM+Plex+Mono:wght@500&display=swap');
+
+@layer base {
+  body {
+    @apply bg-dark font-sans;
+    background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23232323' fill-opacity='0.4'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  }
+
+  h1, h2, h3, h4 {
+    @apply font-sans font-bold uppercase tracking-wider;
+  }
+
+  .font-mono {
+    font-family: 'IBM Plex Mono', monospace;
+  }
+}
+
+@layer components {
+  .btn-backstage {
+    @apply relative px-8 py-4 bg-dark text-accent border-2 border-accent rounded-md 
+           font-mono uppercase tracking-widest text-sm
+           overflow-hidden transition-all duration-300
+           hover:text-dark;
+  }
+
+  .btn-backstage::before {
+    content: '';
+    @apply absolute inset-0 bg-accent -translate-x-full
+           transition-transform duration-300 ease-out;
+  }
+
+  .btn-backstage:hover::before {
+    @apply translate-x-0;
+  }
+
+  .btn-backstage span {
+    @apply relative z-10;
+  }
+
+  .section-diagonal {
+    @apply relative py-32 -skew-y-3 transform;
+  }
+
+  .section-diagonal > * {
+    @apply skew-y-3;
+  }
+
+  .guitar-card {
+    @apply relative overflow-hidden rounded-lg bg-darker p-8
+           border border-accent/20 transition-all duration-500
+           hover:border-accent hover:scale-105 hover:shadow-[0_0_30px_rgba(78,159,61,0.3)];
+  }
+}
+
+.parallax {
+  transform: translateY(var(--parallax-y, 0));
+}
